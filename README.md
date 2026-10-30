@@ -1,6 +1,6 @@
-﻿# cloud-native-labs
+# Engineering Lab
 
-Cloud Native .NET, Azure, Kubernetes, DevSecOps and Observability
+Engineering Lab : expérimenter architecture, cloud, infrastructure, sécurité et IA à travers des mini-projets démontrables.
 
 ## Overview
 
