@@ -1,0 +1,16 @@
+name: verify
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - run: dotnet run --project labs/modular-jobs/Checks -c Release
+      - name: Compile infrastructure without deployment
+        run: az bicep build --file infra/storage.bicep --outfile /tmp/storage.json

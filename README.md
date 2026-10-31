@@ -1,43 +1,20 @@
 # Engineering Lab
 
-Engineering Lab : expérimenter architecture, cloud, infrastructure, sécurité et IA à travers des mini-projets démontrables.
+API de travaux techniques synthétiques : monolithe modulaire .NET 10, contrat HTTP, validation métier et stockage mémoire borné. Lab Bicep : compte Storage Azure fermé par défaut, sans déploiement automatique.
 
-## Overview
+## Lancement
 
-This repository is part of my AI & Cloud Native Engineering portfolio.
+SDK .NET 10.0.402, aucun package NuGet tiers.
 
-## Goals
+```powershell
+dotnet run --project labs/modular-jobs/Checks -c Release
+dotnet run --project labs/modular-jobs/Api -- --urls http://127.0.0.1:5080
+```
 
-- Build real-world solutions
-- Apply production-ready engineering practices
-- Learn through implementation
-- Document architecture and technical decisions
-- Develop reusable solutions for businesses
+Le [cours complet corrigé](docs/COURS.md) contient exercice, commandes de démonstration, contrat, schéma de séquence, tests, alternatives DB, sécurité, rollback et questions corrigées. Lire aussi [ADR 001](docs/adr/001-modules.md), le [guide Azure manuel](docs/AZURE.md) et les [preuves locales](docs/VERIFICATION.md).
 
-## Structure
+## État réel et limites
 
-Each project will include:
+Création et lecture fonctionnent sur loopback ; 16 assertions réussies. Bicep compilé localement. Aucune authentification, persistance, liste, suppression ou isolation utilisateur. Redémarrer efface toutes les tâches. Ne pas exposer ce prototype à Internet. Runtime local 10.0.13 : mettre à jour avant exposition, la source officielle annonce 10.0.14. Le stockage Azure est indépendant de l'API ; aucune sauvegarde, restauration, DB, image Docker ou ressource Kubernetes n'est revendiquée.
 
-- Source code
-- Documentation
-- Local execution instructions
-- Automated tests
-- Architecture explanations
-- Future improvements
-
-## Technology
-
-.NET, Azure, Docker, Kubernetes, Python, AI Agents,
-GitHub Actions, OpenTelemetry and related technologies.
-
-## Status
-
-Initialized - first implementation coming soon.
-
-## Security
-
-Do not commit secrets, credentials or private customer data.
-
-## License
-
-No license has been selected yet.
+La CI compile et vérifie, sans déployer. Les actions utilisent des tags majeurs ; l'épinglage à des SHA vérifiés reste à réaliser. Données synthétiques uniquement, aucun secret ni donnée client. Aucune licence choisie.
