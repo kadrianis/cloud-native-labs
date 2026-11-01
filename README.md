@@ -1,5 +1,14 @@
 # Engineering Lab
 
+## LABS_ — Lectures SaaS résilientes
+
+[Client HTTP GET avec reprises bornées](labs/resilient-reader/README.md) : Node.js 22 sans dépendance npm, Retry-After, budget temporel global, limite de réponse et 21 tests. Cours, exercice corrigé et démonstration locale inclus. Ce lecteur complète le suivi de tâches SaaS ; il ne répète aucune écriture.
+
+```sh
+node --test labs/resilient-reader/reader.test.mjs
+node labs/resilient-reader/demo.mjs
+```
+
 API de travaux techniques synthétiques : monolithe modulaire .NET 10, contrat HTTP, validation métier et stockage mémoire borné. Lab Bicep : compte Storage Azure fermé par défaut, sans déploiement automatique.
 
 ## Lancement
